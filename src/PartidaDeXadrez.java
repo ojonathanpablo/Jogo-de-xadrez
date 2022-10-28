@@ -3,6 +3,7 @@ public class PartidaDeXadrez {
 
     public PartidaDeXadrez(){
         quadro = new Quadro(8, 8);
+        configuracaoInicial();
     }
 
     public PecaDeXadrez[][] getPecas() {
@@ -13,5 +14,11 @@ public class PartidaDeXadrez {
             }
         }
         return mat;
+    }
+
+    private void configuracaoInicial(){
+        quadro.colocaPeca(new Torre(quadro, Cor.BRANCO), new Posicao(2,1));
+        quadro.colocaPeca(new Rei(quadro, Cor.PRETO), new Posicao(0,4));
+        quadro.colocaPeca(new Rei(quadro, Cor.BRANCO), new Posicao(7,4));
     }
 }

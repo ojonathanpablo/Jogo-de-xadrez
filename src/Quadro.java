@@ -27,8 +27,13 @@ public class Quadro {
         return pecas[linha][coluna];
     }
 
-    public Peca peca( Posicao Posicao){
-        return pecas[Posicao.getFileira()][Posicao.getColuna()];
+    public Peca peca( Posicao posicao){
+        return pecas[posicao.getFileira()][posicao.getColuna()];
+    }
+
+    public void colocaPeca(Peca peca, Posicao posicao){
+        pecas[posicao.getFileira()][posicao.getColuna()] = peca;
+        peca.posicao = posicao;
     }
 
 }
