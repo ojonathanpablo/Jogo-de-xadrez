@@ -19,8 +19,16 @@ public class Quadro {
     public int getColunas(){
         return colunas;
     }
-    public void setColunas(int coluna){
+    public void setColunas(int colunas){
         this.colunas = colunas;
+    }
+
+    public Peca peca(int linha, int coluna){
+        return pecas[linha][coluna];
+    }
+
+    public Peca peca( Posicao Posicao){
+        return pecas[Posicao.getFileira()][Posicao.getColuna()];
     }
 
 }
