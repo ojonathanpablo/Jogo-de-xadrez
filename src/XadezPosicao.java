@@ -15,7 +15,7 @@ public class XadezPosicao {
     }
 
     public char getColuna(){
-        return coluna;
+        return coluna; 
     }
 
     protected Posicao toPosicao(){

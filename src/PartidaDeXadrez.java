@@ -16,6 +16,27 @@ public class PartidaDeXadrez {
         return mat;
     }
 
+    public PecaDeXadrez executarPecaDeXadrez(XadezPosicao posicaoDeOrigem, XadezPosicao posicaoDoAlvo){
+       Posicao origem =  posicaoDeOrigem.toPosicao();
+       Posicao alvo = posicaoDoAlvo.toPosicao();
+       validarPosicaoDaFonte(origem);
+       Peca capturaPeca = fazerMover(origem, alvo);
+       return (PecaDeXadrez)capturaPeca;
+    }
+
+    private Peca fazerMover(Posicao origem, Posicao alvo){
+        Peca p = quadro.removePeca(origem);
+        Peca capturaPeca = quadro.removePeca(alvo);
+        quadro.colocaPeca(p, alvo);
+        return capturaPeca;
+    }
+
+    public void validarPosicaoDaFonte(Posicao posicao){
+        if (!quadro.existeUmaPeca(posicao)) {
+            throw new XadrezException("Há uma peça nessa posição");
+        }
+    }
+
     private void colocaNovaPeca(char coluna, int linha, PecaDeXadrez peca){
         quadro.colocaPeca(peca, new XadezPosicao(coluna, linha).toPosicao());
     }   

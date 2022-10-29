@@ -43,6 +43,21 @@ public class Quadro {
         peca.posicao = posicao;
     }
 
+    public Peca removePeca(Posicao posicao){
+        if (!existeposicao(posicao)){
+            throw new QuadroException("Essa posição: "+posicao+" Não está no tabuleiro");
+        }
+
+        if (peca(posicao) == null){
+            return null;
+        }
+        Peca aux = peca(posicao);
+        aux.posicao = null;
+        pecas[posicao.getFileira()][posicao.getColuna()] = null;
+        return aux;
+    }
+
+
     private boolean existeposicao(int linha, int coluna){
        return linha >= 0 && linha < linhas && colunas >= 0 && coluna < colunas;     
     }

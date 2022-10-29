@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class UI {
 	// https://stackoverflow.com/questions/5762491/how-to-print-color-in-console-using-system-out-println
 
@@ -20,6 +22,16 @@ public class UI {
 	public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
 	public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
     
+    public static XadezPosicao lerXadrezPosicao(Scanner sc){
+        try {
+            String s = sc.nextLine();
+            char coluna = s.charAt(0);
+            int fileira = Integer.parseInt(s.substring(1));
+            return new XadezPosicao(coluna, fileira);
+        } catch (Exception  e) {
+            throw new XadrezException("Error na entrada de dados: ");
+            }
+    }
 
     public static void printQuadro(PecaDeXadrez[][] pecas) {
         for (int i=0 ; i<pecas.length ; i++) {
@@ -47,6 +59,8 @@ public class UI {
         System.out.print(" ");
 
     }
+
+    
 
 
 }
